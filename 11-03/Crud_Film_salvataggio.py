@@ -87,8 +87,16 @@ def chiediPosizione(f):
                 return scelta  
         except:
             print("Formato numero film non valido")
+            
             corretto = False
  
+
+def modificaFilm(f):
+    visualizzaFilm(f)
+    posizione = chiediPosizione(f)
+    nome = chiediFilm()
+    f[posizione-1] = nome
+
 def visualizzaFilm(f):
     if len(f) == 0:
         print("Nessun film in archivio")
