@@ -83,12 +83,12 @@ def InserisciAnnoFilm():
            
             try:
                
-                data_nascita = datetime.strptime(data, "%d/%m/%Y")
-                if data_nascita > datetime.now():
+                data = datetime.strptime(data, "%d/%m/%Y")
+                if data > datetime.now():
                     print("Data non valida, riprovare")
                 else:
                     errore=False                
-                    return data_nascita
+                    return data
            
             except:
                 print("Data non valida, riprovare")
@@ -146,7 +146,7 @@ def EliminaFilm(dizionario):
 
 film_visti = Carica_Separatore()
 scelta = ""
-while scelta != 0:
+while scelta != "0":
     stampaMenu()
     scelta = Scelta()
     if scelta == "1":
@@ -154,7 +154,6 @@ while scelta != 0:
         anno = InserisciAnnoFilm()
         incassi = InserisciIncassiFilm()
         film_visti[nome] = (anno,incassi)
-
 
     elif scelta == "2":
         VisualizzaFilm(film_visti)
